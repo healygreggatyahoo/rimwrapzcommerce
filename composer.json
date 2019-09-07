@@ -15,6 +15,7 @@
         "cweagans/composer-patches": "^1.0",
         "drupal-composer/drupal-scaffold": "^2.0.1",
         "drupal/admin_toolbar": "^1.27",
+        "drupal/bootstrap": "^3.20",
         "drupal/commerce": "^2.14",
         "drupal/commerce_shipping": "2.0-beta7",
         "drupal/config_direct_save": "^1.0",
