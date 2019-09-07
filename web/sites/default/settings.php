@@ -38,14 +38,6 @@ if (file_exists($local_settings)) {
 $settings['install_profile'] = 'standard';
 
 
-!!! Place at the bottom of settings.php!!!
-
-
-
-
-
-
-
 if (defined('PANTHEON_ENVIRONMENT')) {
   if (in_array($_ENV['PANTHEON_ENVIRONMENT'], array('dev', 'test', 'live'))) {
     $settings['trusted_host_patterns'][] = "{$_ENV['PANTHEON_ENVIRONMENT']}-{$_ENV['PANTHEON_SITE_NAME']}.getpantheon.io";
