@@ -1,0 +1,14 @@
+<?php
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+function rimwrapz_preprocess_commerce_product(&$variables) {
+
+   // Get the commerce product.
+   $product = $variables['elements']['#commerce_product'];
+   // Pass the price.
+   $variables['price'] = $product->variations->entity->getPrice();
+}
