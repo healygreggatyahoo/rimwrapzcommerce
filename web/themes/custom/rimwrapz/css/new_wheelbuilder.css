@@ -1,0 +1,466 @@
+/* --------------------------------------------- */
+/* RimWrapz Wheelbuilder */
+/* --------------------------------------------- */
+
+.rw_wheelbuilder_images_2 {
+display: none;
+}
+
+div#rw_wheelbuilder_bg {
+    width: 120vw;
+    margin-left: -10vw;
+    display: block;
+    position: absolute;
+    z-index: -1000;
+}
+
+img.rw_wheelbuilder_bg_image {
+    opacity: 1;
+    height: auto;
+    max-height: 1250px;
+    width: 105vw;
+    margin-top: -5vw;
+}
+
+.rw_wheelbuilder_menu {
+    clear: both;
+    cursor: pointer;
+    /* width: 100vw; */
+    height: 75px;
+    /* margin-top: -10px; */
+    display: inline-block;
+    text-align: center;
+    /* padding: 20px; */
+    margin-left: -20px;
+}
+
+div#rw_wb_menu {
+    width: 98%;
+    display: block;
+    padding: 15px;
+}
+
+img.wb_button_size:hover {
+    background-color: gray;
+    border-radius: 9px;
+    border: 2px solid gray;
+}
+
+.rw_wheelbuilder_images {
+    clear: both;
+    cursor: pointer;
+    width: 100vw;
+    height: 123vw;
+    display: inline-block;
+    position: relative;
+    margin-left: -3vw;
+    margin-top: 25px;
+    margin-bottom: -75px;
+}
+
+.wheelpiecewidth {
+    display: block;
+    width: 90vw;
+    z-index: -10;
+    position: absolute;
+}
+
+
+img.wb_button_size {
+    width: 100%;
+}
+
+#rw_buttons_colortab {
+    height: 20%;
+    width: 20%;
+    float: left;
+}
+
+
+#rw_color_selector {
+    margin-top: -10px;
+    margin-left: 10px;
+    border-radius: 10px 10px 10px 10px;
+    border: 3px solid gray;
+    width: 90px;
+    position: relative;
+    transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    overflow: visible;
+    padding: 8px;
+    background-color: gray;
+    text-align: left;
+    font-weight: 800;
+    z-index: 12;
+    box-shadow: 10px black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#rw_design_selector {
+    margin-top: -10px;
+    margin-left: -110px;
+    border-radius: 10px 10px 10px 10px;
+    border: 3px solid gray;
+    width: 160px;
+    position: relative;
+    transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    overflow: visible;
+    padding: 8px;
+    background-color: gray;
+    text-align: left;
+    font-weight: 800;
+    z-index: 12;
+    box-shadow: 10px black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+/* RimWrapz Wheelbuilder Image Assembly */
+
+
+
+.wheelbuilder_pieces {
+    display: block;
+    position:absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.rimwrapz_wheelbuilder_container {
+    display: block;
+    width: 100%;
+    /* margin-left: 500px; */
+    /* margin-top: 75px; */
+    /* position: absolute; */
+}
+
+
+
+.showme {
+  display: none;
+}
+
+.rw_wb_buton_tab > * + *{
+  display:none;
+}
+.rw_wb_buton_tab > *{
+  cursor:pointer;
+}
+.rw_wb_buton_tab:hover{
+  outline:none;
+}
+.rw_wb_buton_tab:hover > * + *{
+  display:block; 
+}
+
+
+div#rimcolor {
+    display: block;
+}
+
+div#hubcolor {
+    display: block;
+}
+
+div#spokecolor {
+    display: block;
+}
+
+div#nipplecolor {
+    display: block;
+}
+
+div#rw_design {
+    display: block;
+}
+    
+
+
+
+
+
+
+/* --------------------------------------------- */
+/* RimWrapz Wheelbuilder Screen Size Adjustments */
+/* --------------------------------------------- */
+
+
+
+
+
+@media screen and (min-width: 480px){
+
+.rw_wheelbuilder_images_2 {
+display: none;
+}
+
+
+rw_wheelbuilder_menu {
+    clear: both;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    margin-top: 40px;
+    margin-left: 5px;
+}
+
+div#rw_wb_menu {
+    width: 85px;
+    display: block;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 35px;
+}
+
+#rw_buttons_colortab {
+    height: 75px;
+    width: 75px;
+    float: left;
+}
+
+#rw_color_selector {
+    margin-top: -50px;
+    margin-left: 45px;
+    border-radius: 10px 10px 10px 10px;
+    border: 3px solid gray;
+    width: 250px;
+    height: auto;
+    position: relative;
+    /* transition: height 0.5s; */
+    /* -webkit-transition: height 1.5s; */
+    overflow: visible;
+    padding: 8px;
+    padding-bottom: -3px;
+    background-color: gray;
+    text-align: left;
+    font-weight: 800;
+    z-index: 12;
+    box-shadow: 10px black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#rw_design_selector {
+    margin-top: -50px;
+    margin-left: 45px;
+    border-radius: 10px 10px 10px 10px;
+    border: 3px solid gray;
+    width: 360px;
+    position: relative;
+    /* transition: open 1.5s; */
+    /* -webkit-transition: height 0.5s; */
+    /* overflow: visible; */
+    padding: 8px;
+    background-color: gray;
+    text-align: left;
+    font-weight: 800;
+    z-index: 12;
+    box-shadow: 10px black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/* Wheel Placement and sizing */
+
+.rw_wheelbuilder_images {
+    clear: both;
+    cursor: pointer;
+    height: 90vw;
+    display: inline-block;
+    position: relative;
+    margin-left: 15vw;
+    margin-top: -20px;
+}
+
+.wheelpiecewidth {
+    display: block;
+    width: 65vw;
+    z-index: -10;
+    position: absolute;
+}
+
+}
+
+
+@media screen and (max-width: 767px){
+
+img.rw_wheelbuilder_bg_image {
+    opacity: 1;
+    height: auto;
+    max-height: 1250px;
+    width: 150vw;
+    margin-left: -4vw;
+}
+
+}
+
+@media screen and (min-width: 768px){
+
+.rw_wheelbuilder_images_2 {
+display: none;
+}
+
+
+/* Wheel Placement and sizing */
+
+.rw_wheelbuilder_images {
+    clear: both;
+    cursor: pointer;
+    height: 650px;
+    display: inline-block;
+    position: relative;
+    margin-left: 50px;
+    margin-top: -50px;
+}
+
+.wheelpiecewidth {
+    display: block;
+    width: 475px;
+    margin-left: 18vw;
+    margin-top: 25px;
+    z-index: -10;
+    position: absolute;
+}
+
+
+}
+
+
+@media screen and (min-width: 1400px){
+
+img.rw_wheelbuilder_bg_image {
+    opacity: 1;
+    height: auto;
+    max-height: 1250px;
+    width: 105vw;
+    margin-top: -10vw;
+}
+
+
+#rw_buttons_colortab {
+    height: 90px;
+    width: 90px;
+    float: left;
+}
+
+.rw_wheelbuilder_images {
+    clear: both;
+    cursor: pointer;
+    height: 750px;
+    display: inline-block;
+    position: relative;
+    margin-left: 20vw;
+    margin-top: -60px;
+    z-index: -20;
+}
+
+div#rw_wb_menu {
+    width: 180px;
+    display: block;
+    position: absolute;
+    margin-top: -35px;
+}
+
+#rw_color_selector {
+    margin-top: -25px;
+    margin-left: 20px;
+    border-radius: 10px 10px 10px 10px;
+    border: 3px solid gray;
+    width: 120px;
+    height: auto;
+    position: relative;
+    /* transition: height 0.5s; */
+    /* -webkit-transition: height 1.5s; */
+    overflow: visible;
+    padding: 8px;
+    padding-bottom: -3px;
+    background-color: gray;
+    text-align: left;
+    font-weight: 800;
+    z-index: 12;
+    box-shadow: 10px black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#rw_design_selector {
+    margin-top: -250px;
+    margin-left: 25px;
+    border-radius: 10px 10px 10px 10px;
+    border: 3px solid gray;
+    width: 350px;
+    position: relative;
+    /* transition: open 1.5s; */
+    /* -webkit-transition: height 0.5s; */
+    /* overflow: visible; */
+    padding: 8px;
+    background-color: gray;
+    text-align: left;
+    font-weight: 800;
+    z-index: 12;
+    box-shadow: 10px black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.rw_wheelbuilder_menu {
+    clear: both;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    margin-top: 100px;
+    margin-left: 1vw;
+}
+
+/* Wheel Placement and sizing */
+
+.rw_wheelbuilder_images {
+    clear: both;
+    cursor: pointer;
+    height: 300px;
+    display: inline-block;
+    position: absolute;
+    right: 330px;
+    margin-top: -50px;
+    z-index: -1000;
+}
+
+.wheelpiecewidth {
+    display: block;
+    width: 900px;
+    margin-left: 15em;
+    margin-top: -30em;
+    z-index: -10;
+    position: absolute;
+}
+
+.rw_wheelbuilder_images_2 {
+    clear: both;
+    cursor: pointer;
+    height: 300px;
+    display: inline-block;
+    position: relative;
+    margin-top: 40px;
+    margin-left: 20vw;
+}
+
+.wheelpiecewidth2 {
+    display: block;
+    width: 400px;
+    margin-left: unset;
+    margin-top: -105px;
+    z-index: -10;
+    position: absolute;
+}
+
+
+}
+
+
+
+@media screen and (orientation: portrait) and (min-width: 1400px) {
+
+
+
+
+}
