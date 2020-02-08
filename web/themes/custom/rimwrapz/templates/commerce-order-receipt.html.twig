@@ -1,0 +1,202 @@
+{#
+/**
+ * @file
+ * Template for the order receipt.
+ *
+ * Available variables:
+ * - order_entity: The order entity.
+ * - billing_information: The billing information.
+ * - shipping_information: The shipping information.
+ * - payment_method: The payment method.
+ * - totals: An array of order totals values with the following keys:
+ *   - subtotal: The order subtotal price.
+ *   - adjustments: An array of adjustment totals:
+ *     - type: The adjustment type.
+ *     - label: The adjustment label.
+ *     - total: The adjustment total price.
+ *     - weight: The adjustment weight, taken from the adjustment type.
+ *   - total: The order total price.
+ *
+ * @ingroup themeable
+ */
+#}
+<table   style="margin:0px auto 0px auto;padding: 20px;width:100%;">
+<tr>
+<td>
+<table valign="top" style="margin:0px auto 35px auto;padding: 35px; border:1px solid gray;width:100%;max-width:900px;font-family: arial,sans-serif;font-size:.8em;">
+  <tbody>
+  <tr>
+    <td>
+
+      <table style="margin-left: auto; margin-right: auto; width:100%;">
+        <tbody>
+        <tr>
+          <td width="65%" style="text-align:left;">
+			<img src="https://rimwrapz.com/sites/default/files/2019-09/rw_logo_black.png" style="width:100%;max-width:180px;"><br /><br />
+			<span style="font-size:.7em;">6808 Wheatland Road North • Keizer OR 97303 | 541 992-0935</span><br /><br />
+		  </td>
+          <td width="35%" valign="top" style="text-align:right;">
+			<span style="font-size:1.2em;font-weight:bold;">WEB ORDER CONFIRMATION</span><br /><br />
+			<p style="margin-top:12px;"><strong>Order Number: </strong>{{ order_entity.getOrderNumber }}<br /></span><span><strong>Date: </strong>{{ 'now'|date('m/d/y') }}</p>
+		  </td>
+        </tr>
+        </tbody>
+        </tr>
+        
+
+      <table style="border-top:1px solid gray;margin-left: auto; margin-right: auto; width:100%; text-align: left;padding:5px 35px 0px 35px;">
+        <tbody>
+            {% if (billing_information or shipping_information) %}
+            <table style="width: 100%;text-align: left;">
+              <tbody>
+              <tr>
+                {% if shipping_information %}
+                  <td style="padding-top: 5px; font-weight: bold;">{{ 'Shipping Information'|t }}</td>
+                {% endif %}
+                {% if billing_information %}
+                  <td style="padding-top: 5px; font-weight: bold;">{{ 'Billing Information'|t }}</td>
+                {% endif %}
+              </tr>
+              <tr>
+                {% if shipping_information %}
+                  <td>
+                    {% block shipping_information %}
+                      {{ shipping_information }}
+                    {% endblock %}
+                  </td>
+                {% endif %}
+                {% if billing_information %}
+                  <td>
+                    {% block billing_information %}
+                      {{ billing_information }}
+                    {% endblock %}
+                  </td>
+                {% endif %}
+              </tr>
+              {% if payment_method %}
+                <tr>
+                  <td style="font-weight: bold; margin-top: 10px;">{{ 'Payment Method'|t }}</td>
+                </tr>
+                <tr>
+                  <td>
+                    {% block payment_method %}
+                      {{ payment_method }}
+                    {% endblock %}
+                  </td>
+                </tr>
+              {% endif %}
+              </tbody>
+            </table>
+            {% endif %}
+          
+             <table style="padding: 0px 0px 0px 0px;background-color:gray;width: 100%;">
+              <tbody style="color:white;font-size:.8em;font-weight:bold;">
+               
+              <tr padding="0px">
+                <td width="10%" valign="top" style="text-align:center;">
+                QTY
+                </td>
+                <td width="60%" valign="top"  style="text-align:left;">
+                <span>Item Description</span>
+                </td>
+                
+            {% block order_items %}
+                {% set disc_percent_remainder = 1 - adjustment.percentage %}               
+                {% set disc_unit_price_raw_2 = order_item.getUnitPrice|commerce_price_format %}                
+                {% set disc_unit_price_raw_1 = disc_unit_price_raw_2|trim(' USD', 'right') %}               
+                {% set disc_unit_price_raw = disc_unit_price_raw_1|trim('$', 'left') %}
+                {% set disc_unit_price = (disc_unit_price_raw * 100) / disc_percent_remainder %}                                               
+            		{% if adjustment.percentage is not empty %}
+                		<td width="10%" valign="top" style="text-align:right;">
+                			<span>Retail</span>
+                		</td>
+            		{% endif %}              
+                <td width="10%" valign="top" style="text-align:right;">
+                <span>Unit</span>
+                </td>
+                <td width="10%" valign="top" style="text-align:right;">
+                <span>Total   </span>
+                </td>
+              </tr>
+              </tbody>
+              </table>
+
+
+
+            <table style="padding: 5px 0px 10px 0px;border-top:1px solid gray;width: 100%;">
+              <tbody style="text-align: left;">
+              {% for order_item in order_entity.getItems %}
+               
+              <tr padding="0px" style="border-bottom:1px solid lightgray;">
+                <td width="10%" valign="top" style="text-align:center;border-bottom:1px solid lightgray;padding-bottom:3px;">
+                <span>{{ order_item.getQuantity|number_format }}</span>
+                </td>
+                <td width="60%" valign="top"  style="text-align:left;border-bottom:1px solid lightgray;padding-bottom:3px;">
+                <span>{{ order_item.label }} - {{ order_item.field_model.entity.name.value }}</span>
+                </td>
+                <td width="10%" valign="top" style="text-align:right;border-bottom:1px solid lightgray;padding-bottom:3px;">
+				<span>
+				{% for adjustment in totals.adjustments %}                
+                {% set disc_percent_remainder = 1 - adjustment.percentage %}               
+                {% set disc_unit_price_raw_2 = order_item.getUnitPrice|commerce_price_format %}                
+                {% set disc_unit_price_raw_1 = disc_unit_price_raw_2|trim(' USD', 'right') %}               
+                {% set disc_unit_price_raw = disc_unit_price_raw_1|trim('$', 'left') %}
+                {% set disc_unit_price = (disc_unit_price_raw * 100) / disc_percent_remainder %}                                               
+                ${{ (disc_unit_price / 100)|round(2, 'ceil') }}               
+                {% endfor %}
+				</span>
+				</td>
+                <td width="10%" valign="top" style="text-align:right;border-bottom:1px solid lightgray;padding-bottom:3px;">
+                <span>{{ order_item.getUnitPrice|commerce_price_format }}</span>
+                </td>
+                <td width="10%" valign="top" style="text-align:right;border-bottom:1px solid lightgray;padding-bottom:3px;">
+                <span>{{ order_item.getTotalPrice|commerce_price_format }}</span>
+                </td>
+              </tr>
+
+              {% endfor %}
+
+			  </tbody>
+            </table>
+            {% endblock %}
+
+
+         <table style="width:100%;text-align:left;">
+         <tr style="margin-top:15px;" valign="bottom">
+          <td style="width:50%;text-align:left;padding-right:35px;">
+            <span style="text-align:right;font-size:.7em;">©Copyright 2020 Rimwrapz.com</span>
+            <br /><br />
+          </td>
+          <td style="width:25%;text-align:left;">
+            <br><span><strong>Subtotal:</strong></span><br /><br />            
+            {% for adjustment in totals.adjustments %}
+            <span><strong>{{ adjustment.label }}:</strong></span><br /><br />
+			{% endfor %}
+            <span><strong>TOTAL:</strong></span>
+            <br /><br />
+          </td>
+          <td style="width:25%;text-align:right;">
+            <br><span style="text-align:right">{{ totals.subtotal|commerce_price_format }}</span><br /><br />
+            {% for adjustment in totals.adjustments %}
+            <span><strong>{{ adjustment.total|commerce_price_format }}</strong></span><br /><br />
+			{% endfor %}
+            <span style="text-align:right;"><strong>{{ '@total'|t({'@total': order_entity.getTotalPrice|commerce_price_format}) }}</strong></span>
+            <br /><br />
+          </td>
+        </tr>
+		</table>
+
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      
+
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+</td>
+</tr>
+</table>
